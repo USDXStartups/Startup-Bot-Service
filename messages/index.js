@@ -246,13 +246,14 @@ bot.use(builder.Middleware.firstRun({ version: 1.0, dialogId: '*:/firstRun' }));
 bot.dialog('/firstRun', [
     function (session) {
         session.send("Hello... I'm the Microsoft Startup Bot.");
+        session.endDialog("Ask me a  question and I'll try to help.");
         
         // if (!session.userData.name) {
         //     session.beginDialog('/profile');
         // }
     },
     function (session) {
-        session.endDialog("Ask me a  question and I'll try to help."); 
+        // session.endDialog("Ask me a  question and I'll try to help."); 
     }
 ]);
 
