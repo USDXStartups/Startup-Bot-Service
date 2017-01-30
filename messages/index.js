@@ -137,22 +137,22 @@ bot.dialog('/documentation', [
     },
     //confirmIntent,
     function (session, results) {
-        // console.log("call to https://directline.botframework.com/api/conversations");
+        console.log("call to https://directline.botframework.com/api/conversations");
 
-        // var options = {
-        //     url: 'https://directline.botframework.com/api/conversations',
-        //     headers: {
-        //         'Authorization': 'BotConnector O2jX7ZXszCM.cwA.Kdk.TdqsFsXKRqtF_YazbQIqvgp1RmRelnHKOrDa_1NdaQY'
-        //     }
-        // };
-        // request.post(
-        //     options, 
-        //     function (error, response, body) {
-        //         if (!error && response.statusCode == 200) {
-        //             console.log(body)
-        //         }
-        //     }
-        // );
+        var options = {
+            url: 'https://directline.botframework.com/api/conversations',
+            headers: {
+                'Authorization': 'BotConnector O2jX7ZXszCM.cwA.Kdk.TdqsFsXKRqtF_YazbQIqvgp1RmRelnHKOrDa_1NdaQY'
+            }
+        };
+        request.post(
+            options, 
+            function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    console.log(body)
+                }
+            }
+        );
 
 
         // Fake it!
@@ -171,23 +171,22 @@ bot.dialog('/profile', [
         session.userData.name = results.response;
         builder.Prompts.text(session, "Hi " + results.response + ", What's the name of your startup?"); 
     },
+    // function (session, results) {
+    //     session.userData.startup = results.response;
+    //     builder.Prompts.text(session, "What is your email address?"); 
+    // },
+    // function (session, results) {
+    //     session.userData.email = results.response;
+    //     builder.Prompts.choice(session, "What's your primary coding language?", [".NET", "Node.js", "Ruby on Rails", "PHP", "Java"]);
+    // },
+    // function (session, results) {
+    //     session.userData.languageChoice = results.response;
+    //     builder.Prompts.choice(session, "What data store do you primarily use?", ["SQL Database", "Postgres", "MySQL", "Oracle", "MongoDB"]);
+    // },
     function (session, results) {
-        session.userData.startup = results.response;
-        builder.Prompts.text(session, "What is your email address?"); 
-    },
-    function (session, results) {
-        session.userData.email = results.response;
-        builder.Prompts.choice(session, "What's your primary coding language?", [".NET", "Node.js", "Ruby on Rails", "PHP", "Java"]);
-    },
-    function (session, results) {
-        session.userData.languageChoice = results.response;
-        builder.Prompts.choice(session, "What data store do you primarily use?", ["SQL Database", "Postgres", "MySQL", "Oracle", "MongoDB"]);
-    },
-    function (session, results) {
-        session.userData.databaseChoice = results.response;
+        //session.userData.databaseChoice = results.response;
         session.send("Got it... " + session.userData.name + 
-                     " your startup is " + session.userData.startup + 
-                     " and you're currently using " + session.userData.languageChoice.value() + ".");
+                     " your startup is " + session.userData.startup);
 
         session.endDialog();
     }
