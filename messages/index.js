@@ -247,9 +247,9 @@ bot.dialog('/firstRun', [
     function (session) {
         session.send("Hello... I'm the Microsoft Startup Bot.");
         
-        if (!session.userData.name) {
-            session.beginDialog('/profile');
-        }
+        // if (!session.userData.name) {
+        //     session.beginDialog('/profile');
+        // }
     },
     function (session) {
         session.endDialog("Ask me a  question and I'll try to help."); 
