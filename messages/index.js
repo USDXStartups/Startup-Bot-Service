@@ -131,10 +131,10 @@ bot.dialog('/support', [
     confirmIntent
 ]);
 bot.dialog('/documentation', [
-    function (session, args) {
-        session.send("You asked about Documentation.");
-        builder.Prompts.choice(session, "Which OS?", ["Windows", "Linux"]);
-    },
+    // function (session, args) {
+    //     session.send("You asked about Documentation.");
+    //     builder.Prompts.choice(session, "Which OS?", ["Windows", "Linux"]);
+    // },
     //confirmIntent,
     function (session, results) {
         console.log("call to https://directline.botframework.com/api/conversations");
