@@ -63,7 +63,7 @@ bot.dialog('/officehours', [
             // Get subjects
             console.log("Getting subjects...");
             request.get({
-                url: 'https://startupcalendarhelper.azurewebsites.net/api/OfficeHoursTopics?code=rrzp8pog8s4saixykuyslnrlvmo9f2jzl3x1'
+                url: 'https://calendarhelper.azurewebsites.net/api/OfficeHoursTopics?code=1q83kb64qa3ps7zkobks70bprqvj7r4w5vqc'
             }, function(error, response, body){
                 if(error) {
                     console.log(error);
